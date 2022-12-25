@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(250, 250, 250);
+}
+
+nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#logo {
+    color: aliceblue;
+}
+
+#logo:hover {
+    color: rgba(240, 248, 255, 0.358);
+}
+
+.btn {
+    background-color: rgb(63, 166, 255);
+    border: none;
+}
+
+.btn:hover {
+    background-color: rgb(10, 141, 255);
+}
+
+.btn-danger {
+    background-color: brown;
+}
+
+.btn-danger:hover {
+    background-color: rgb(110, 27, 27);
+}
+
+.btn-warning {
+    background-color: rgb(242, 153, 0);
+}
+
+.btn-warning:hover {
+    background-color: rgb(175, 111, 0);
+}
+
+thead,
+tbody {
+    text-align: center;
+}
+
+.card {
+    box-shadow: 0 0 10px;
+}
+
+.home-container {
+    min-width: 10%;
+    margin: 10px auto;
+}
+
+.home-card {
+    min-width: 50%;
+    margin: 10px;
+}
+
+.card-body-home {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-height: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
