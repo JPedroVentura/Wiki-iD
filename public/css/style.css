@@ -18,9 +18,9 @@ nav {
     padding: 40px;
 }
 
-a {
-    cursor: pointer;
-    text-decoration: none;
+
+.card {
+    padding: 12px;
 }
 
 #logo {
@@ -79,10 +79,41 @@ tbody {
     display: flex;
     flex-direction: row;
     align-items: center;
-    max-height: 10px;
+    padding: 30px;
+    max-height: 20px;
 }
 
-a {
+
+.link{
+    color: brown;
     text-decoration: none;
-    color: black;
+}
+.link:hover{
+    color: rgb(111, 29, 29);
+}
+
+.complete {
+    background-color: green;
+    border-radius: 20px 20px;
+    height: 20px;
+    width: 20px;
+}
+
+.pending-client {
+    background-color: brown;
+    border-radius: 20px 20px;
+    height: 20px;
+    width: 20px;
+}
+
+.in-progress {
+    background-color: rgb(242, 153, 0);
+    border-radius: 20px 20px;
+    height: 20px;
+    width: 20px;
+}
+
+.inspection-home {
+    max-width: 100%;
+    page-break-before: always;
 }

@@ -1,8 +1,9 @@
 <%- include('partials/header.ejs') %>
-    <%- include('partials/homenavbar.ejs') %>
 
         <body>
             <div class="container">
+                <a href="/" class="btn btn-success mt-3">Voltar</a>
+                <a href="/admin/inspections/new" class="btn btn-success mt-3">Add Vistoria</a>
                 <div class="jumbotron mt-3">
                     <div class="title" style="display: flex; flex-direction: row;">
                         <h1 class="display-4">Wiki-</h1>
@@ -19,16 +20,19 @@
                 </div>
                 <br>
                 <div class="container home-container">
-                    <% articles.forEach(article=> { %>
+                    <% inspections.forEach(inspection=> { %>
 
                         <div class="card home-card">
                             <div class="card-header">
                                 <h3>
-                                    <%= article.title %>
+                                    <%= inspection.enterprise %>
                                 </h3>
+                                <span>
+                                    <%= inspection.cnpj %>
+                                </span>
                             </div>
                             <div class="card-body card-body-home">
-                                <a href="/<%=  article.slug %>" class="btn btn-success mt-3">Visualizar</a>
+                                <a href="/inspections/<%=inspection.slug %>" class="btn btn-success mt-3">Visualizar</a>
                             </div>
                         </div>
                         <br>

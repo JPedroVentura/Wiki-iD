@@ -1,0 +1,66 @@
+<%- include('partials/header.ejs') %>
+
+        <body>
+            <div class="container">
+                <a href="/inspections/" class="btn btn-success mt-3">Voltar</a>
+    
+                <div class="jumbotron mt-3">
+                    <div class="title" style="display: flex; flex-direction: row;">
+                        <h1 class="display-4">Wiki-</h1>
+                        <h1 class="display-4" style="color: brown;">iD</h1>
+                    </div>
+                    <p class="lead">
+                        A Control iD é uma indústria 100% brasileira, especializada no desenvolvimento de
+                        hardwares e softwares para segurança eletrônica, automação comercial e gestão de recursos
+                        humanos. Com o objetivo de atender as necessidades e superar as expectativas de micro, pequenas,
+                        médias e grandes empresas de todos os setores de atividade, investe constantemente em pesquisa e
+                        inovação, atuando no mercado brasileiro com as mais recentes tecnologias a preços convidativos.
+                    </p>
+                    <hr class="my-4">
+                </div>
+                <br>
+                <div class="container home-container">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>
+                                <%= inspections.enterprise %>
+                            </h3>
+                            <%= inspections.cnpj %>
+                            <% if(inspections.completion_date == undefined || inspections.completion_date == null) { %>
+                                <span>A vistoria ainda não foi realizada</span>
+                                <span>Agendada Para: <%= inspections.scheduling_date %></span>
+                            <% } %> 
+                        </div>
+                        <div class="card-body">
+                            <% if(inspections.observation == undefined || inspections.observation == null) { %>
+                                <ul>
+                                    <h5>Vendedor:   <%=  inspections.vendor%></h5>
+                                    <h5>CNPJ:       <%=  inspections.cnpj%></h5>
+                                    <h5>Contato:    <%=  inspections.contact%></h5>
+                                    <h5>Telefone:   <%=  inspections.phone%></h5>
+                                    <h5>E-mail:     <%=  inspections.email%></h5>
+                                    <h5>Projeto:    <%=  inspections.project %></h5>
+                                    <h5>Analista:   <%=  inspections.user%></h5>
+                                </ul>
+                                <% } else { %>
+                                    <ul>
+                                        <h5>Vendedor:   <%=  inspections.vendor%></h5>
+                                        <h5>CNPJ:       <%=  inspections.cnpj%></h5>
+                                        <h5>Contato:    <%=  inspections.contact%></h5>
+                                        <h5>Telefone    <%=  inspections.phone%></h5>
+                                        <h5>E-mail:     <%=  inspections.email%></h5>
+                                        <h5>Projeto:    <%=  inspections.project %></h5>
+                                        <h5>Analista:   <%=  inspections.user%></h5>
+                                    </ul>
+                                    <hr>
+                                    <h3>Observação:</h3>
+                                    <%- inspections.observation %>
+                                    <% } %> 
+                        </div>
+                    </div>
+                </div>
+                  
+
+            </div>
+        </body>
+        <%- include('partials/footer.ejs') %>

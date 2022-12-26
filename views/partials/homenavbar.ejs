@@ -1,16 +1,43 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <a href="/" class="nav-link" id="logo">
-                Wiki-iD
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Wiki-iD</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                <% categories.forEach(category=> { %>
+                    <li class="nav-item">
+                        <a href="/category/<%= category.slug %> " class="dropdown-item">
+                            <%=category.title %>
+                        </a>
+                    </li>
+                <%}) %>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <span class="navbar-brand" href="/" style="margin-right: 0px;">Projetos e Vistorias</span>
+    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 20px;">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                  <li class="nav-item dropdown">
+                   <a href="/inspections" class="dropdown-item"> Vistorias</a>
+                  </li>
+          </ul>
         </li>
-        <% categories.forEach(category=> { %>
-            <li class="nav-item">
-                <a href="/category/<%= category.slug %> " class="nav-link">
-                    <%=category.title %>
-                </a>
-            </li>
-            <%}) %>
-    </ul>
-</nav>
+      </ul>
+    </div>
+    <a href="/admin" class="btn btn-success">
+        LOGIN
+    </a>
+  </nav>
+

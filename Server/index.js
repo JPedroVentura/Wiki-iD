@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const categoriesController = require('../categories/CategoriesController');
 const articlesController = require('../articles/ArticlesController');
 const userController = require('../user/UserController');
+const inspectionsController = require('../inspections/InspectionsController');
 
 const HOST = 'localhost';
 const PORT = 8181;
@@ -26,6 +27,7 @@ Connection
 const Article = require('../articles/Article');
 const Category = require('../categories/Category');
 const User = require('../user/User');
+const Inspection = require('../inspections/Inspection.js');
 
 //View Engine
 app.set('view engine', 'ejs');
@@ -34,7 +36,7 @@ app.set('view engine', 'ejs');
 app.use(session({
     secret: 'GHID',
     cookie: {
-        maxAge: 300000 //Valor em milessegundos
+        maxAge: 36000000 //Valor em milessegundos
     }
 }));
 
@@ -50,7 +52,7 @@ app.use(bodyParser.json());
 app.use('/', categoriesController);
 app.use('/', articlesController);
 app.use('/', userController);
-
+app.use('/', inspectionsController);
 //Routes
 
 app.get('/', (req, res) => {
