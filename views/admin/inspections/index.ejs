@@ -5,13 +5,12 @@
         </div>
         <div class="card mt-3">
             <div class="card-header">
-                <a href="/admin/inspections/new" class="btn btn-success">Cadastrar Vistoria</a>
+                <a href="/admin/inspections/new" class="btn ">Cadastrar Vistoria</a>
                 <table class="table table-bordered inspection-home">
                     <thead>
                         <tr>
                             <th>Vendedor</th>
                             <th>Empresa</th>
-                            <th>CNPJ</th>
                             <th>Status</th>
                             <th>Ações</th>
                         </tr>
@@ -22,34 +21,22 @@
                     <% inspections.forEach(inspection=> { %>
                         <tr>
                             <th>
-                                <%= inspection.id %>
-                            </th>
-                            <th>
                                 <%= inspection.vendor %>
                                 <th>
                                     <%= inspection.enterprise %>
                                 </th>
                                 <th>
-                                    <%= inspection.cnpj %>
-                                </th>
-                                <th>
-                                    <%= inspection.request_date %>
-                                </th>
-                                <th>
-                                    <%= inspection.completion_date%>
-                                </th>
-                                <th>
-                                    <% if(inspection.status == "0"){ %>
-                                        <button  class="btn btn-success complete"  data-toggle="tooltip" title="Concluido" type="button"> </button>
-                                     <% } else if(inspection.status == "1" || inspection.status == "2") { %> 
-                                        <span  class="btn btn-success pending-client" data-toggle="tooltip" title="<%= inspection.status%>" type="button"> </span>
-                                    <% } else if(inspection.status == "1" || inspection.status == "2") { %> 
-                                        <span  class="btn btn-success in-progress" style=> </span> 
+                                    <% if(inspection.status == "Concluido"){ %>
+                                        <button  class="btn  complete"  data-toggle="tooltip" title="Concluido" type="button"> </button>
+                                     <% } else if(inspection.status == "Pendente Cliente" || inspection.status == "Pendente Técnico") { %> 
+                                        <span  class="btn  pending-client" data-toggle="tooltip" title="Pendente Cliente/Tecnico" type="button"> </span>
+                                    <% } else if(inspection.status == "Em Andamento") { %> 
+                                        <span  class="btn  in-progress"  data-toggle="tooltip" title="Em Andamento" type="button"> </span> 
                                      <%}%> 
                                 </th>
                             <th>
-                                <a href="/admin/articles/edit/<%= inspection.id %>" class="btn btn-warning">Editar</a>
-                                <form action="/articles/delete" method="post" , style="display: inline;"
+                                <a href="/admin/inspections/edit/<%= inspection.id %>" class="btn btn-warning">Editar</a>
+                                <form action="/inspections/delete" method="post" , style="display: inline;"
                                     onsubmit="deleteConfirm(event, this)">
                                     <input type="hidden" name="id" value="<%= inspection.id %>">
                                     <button class="btn btn-danger" type="submit">Deletar</button>
@@ -69,7 +56,7 @@
                 function deleteConfirm(e, form) {
                     e.preventDefault();
 
-                    let userInputYes = confirm('Deseja realmente deletar este artigo?');
+                    let userInputYes = confirm('Deseja realmente deletar esta vistoria?');
 
                     if (userInputYes) {
                         form.submit();

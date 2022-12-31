@@ -5,6 +5,9 @@ const session = require('express-session');
 const app = express();
 const bodyParser = require('body-parser');
 
+let path = require("path");
+
+
 //Import Controllers/Routes
 const categoriesController = require('../categories/CategoriesController');
 const articlesController = require('../articles/ArticlesController');
@@ -56,6 +59,11 @@ app.use('/', inspectionsController);
 //Routes
 
 app.get('/', (req, res) => {
+    let file = path.join(__dirname, '..', 'index.html');
+    res.sendFile(file);
+})
+
+app.get('/home', (req, res) => {
 
     Article.findAll({
         order: [
@@ -72,7 +80,7 @@ app.get('/', (req, res) => {
     })
 });
 
-app.get('/:slug', (req, res) => {
+app.get('/home/:slug', (req, res) => {
     let slug = req.params.slug;
 
     Article.findOne({
@@ -80,7 +88,7 @@ app.get('/:slug', (req, res) => {
             slug: slug
         }
     }).then((article) => {
-        if(article != undefined){
+        if (article != undefined) {
             Category.findAll().then((categories) => {
                 res.render('article', {
                     articles: article,
@@ -102,7 +110,7 @@ app.get('/category/:slug', (req, res) => {
         },
         include: [{ model: Article }]
     }).then((category) => {
-        if(category != undefined) {
+        if (category != undefined) {
             Category.findAll().then((categories) => {
                 res.render('home', {
                     articles: category.articles,
@@ -115,6 +123,11 @@ app.get('/category/:slug', (req, res) => {
 
     })
 })
+
+app.get('*', (req, res) => {
+    res.render('error')
+})
+
 app.listen(PORT, () => {
     console.log(`Server on: http://${HOST}:${PORT}`);
 });

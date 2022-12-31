@@ -1,11 +1,11 @@
 <%- include('../../partials/header.ejs') %>
 <%- include('../../partials/navbar.ejs') %>
 <body>
-    <div class="container">
+    <div class="container mt-3">
         <h2>Usuarios</h2>
         <div class="card">
             <div class="card-header">
-                <a href="/admin/users/create" class="btn btn-success">Novo Usuario</a>
+                <a href="/admin/users/create" class="btn">Novo Usuario</a>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -25,11 +25,11 @@
                                 <%= user.email %>
                             </th>
                             <th>
-                                <a href="/admin/categories/edit/<%= user.id %>"
+                                <a href="/admin/users/edit/<%= user.id %>"
                                     class="btn btn-warning">Editar</a>
                                 <form action="/categories/delete" method="post" , style="display: inline;"
                                     onsubmit="deleteConfirm(event, this)">
-                                    <input type="hidden" name="id" value="<%= user.id %>">
+                                    <input type="hidden" name="id" value="<%= users.id %>">
                                     <button class="btn btn-danger" type="submit">Deletar</button>
                                 </form>
                             </th>

@@ -1,0 +1,109 @@
+<%- include('../../partials/header.ejs'); %>
+    <%- include('../../partials/navbar.ejs'); %>
+        <div class="container">
+            <br>
+            <div class="card">
+                <div class="card-header">
+                    <h2>Cadastro de Vistoria</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/inspections/update">
+                        <div class="form-floating mb-3">
+                            <input type="text" name="vendor" id="vendor"
+                                class="form-control" value="<%= inspections.vendor %>">
+                            <label for="vendor" required>Vendedor</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="enterprise" id="enterprise"
+                                class="form-control" value="<%= inspections.enterprise %>">
+                            <label for="enterprise" required>Empresa</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="cnpj" id="cnpj"
+                                class="form-control" value="<%= inspections.cnpj %>">
+                            <label for="cnpj">CNPJ</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="contact" id="contact"
+                                class="form-control" value="<%= inspections.contact %>">
+                            <label for="contact">Contato</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="tel" name="phone" id="phone"
+                                class="form-control" value="<%= inspections.phone %>">
+                            <label for="phone">Telefone</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" name="email" id="email"
+                                class="form-control" value="<%= inspections.email %>">
+                            <label for="email">E-mail</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="project" id="email"
+                                class="form-control" value="<%= inspections.project %>">
+                            <label for="project">Projeto</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="date" name="requestDate" id="requestDate"
+                                class="form-control" required>
+                            <label for="requestDate">Solicitação</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="date" name="scheduling_date" id="scheduling_date"
+                                class="form-control" required>
+                            <label for="requestDate">Agendado Para:</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="date" name="completionDate" id="completionDate"
+                                class="form-control" required>
+                            <label for="completionDate">Realizado Em:</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="user" id="user"
+                                class="form-control" value="<%= inspections.user %>">
+                            <label for="user">Analista</label>
+                            <input type="hidden" name="id" value="<%= inspections.id %>">
+                        </div>
+                        <textarea class="form-control" id="observation" name="observation" placeholder="Escreva aqui..."
+                        style="resize: none;"><%= inspections.observation %></textarea>
+                        <select class="form-select" aria-label="Default select example" name="status">
+                            <option value="Concluido">Concluido</option>
+                            <option value="Pendente Cliente">Pendente Cliente</option>
+                            <option value="Pentente Técnico">Pentente Técnico</option>
+                            <option value="Em Andamento">Em Andamento</option>
+                        </select>
+                        <button class="btn mt-3" type="submit">Atualizar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <%- include('../../partials/footer.ejs'); %>
+
+        <script src="/tinymce/tinymce.min.js"></script>
+        <script>
+            tinymce.init({
+                selector: "#observation",
+                language: "pt_BR",
+                plugins: [
+                    'advlist',
+                    'autolink',
+                    'link',
+                    'image',
+                    'lists',
+                    'print',
+                    'preview',
+                    'hr',
+                    'searchreplace',
+                    'wordcount',
+                    'fullscreen',
+                    'inserdatetime',
+                    'media',
+                    'save',
+                    'table',
+                    'paste',
+                    'code',
+                    'emoticons'
+                ]
+            })
+
+        </script>

@@ -32,13 +32,17 @@ nav {
 }
 
 .btn {
+    color: aliceblue;
     background-color: rgb(63, 166, 255);
-    border: none;
+    border: 0;
+    
 }
 
 .btn:hover {
+    color: aliceblue;
     background-color: rgb(10, 141, 255);
 }
+
 
 .btn-danger {
     background-color: brown;
@@ -59,6 +63,9 @@ nav {
 thead,
 tbody {
     text-align: center;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
 }
 
 .card {
@@ -116,4 +123,17 @@ tbody {
 .inspection-home {
     max-width: 100%;
     page-break-before: always;
+}
+
+img {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.view-article:hover {
+    
 }
